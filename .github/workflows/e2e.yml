@@ -12,12 +12,8 @@ jobs:
     name: e2e
     if: |
       startsWith(github.event.pull_request.title, 'fix:') ||
-      startsWith(github.event.pull_request.title, 'fix(') ||
       startsWith(github.event.pull_request.title, 'feat:') ||
-      startsWith(github.event.pull_request.title, 'feat!:') ||
-      startsWith(github.event.pull_request.title, 'feat(') ||
-      startsWith(github.event.pull_request.title, 'refactor:') ||
-      startsWith(github.event.pull_request.title, 'refactor(')
+      startsWith(github.event.pull_request.title, 'refactor:')
       # github.event.pull_request.title =~ '^(test)(\(.*\))?: .*$'
     runs-on: ubuntu-latest
     env:
