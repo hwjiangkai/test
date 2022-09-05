@@ -3,6 +3,13 @@ name: e2e
 #  pull_request:
 #    branches:
 #      - main
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 permissions:
   contents: read
   # Optional: allow read access to pull request. Use with `only-new-issues` option.
@@ -14,7 +21,6 @@ jobs:
       startsWith(github.event.pull_request.title, 'fix:') ||
       startsWith(github.event.pull_request.title, 'feat:') ||
       startsWith(github.event.pull_request.title, 'refactor:')
-      # github.event.pull_request.title =~ '^(test)(\(.*\))?: .*$'
     runs-on: ubuntu-latest
     env:
       VANUS_GATEWAY: 192.168.49.2:30001
